@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:pro="http://www.liquibase.org/xml/ns/pro" 
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+
+	<changeSet id="faeem.mansuri-001" author="Faeem Mansuri">
+		<comment>Creating Event Table</comment>
+		<sql>
+			<![CDATA[
+				CREATE TABLE `events` (
+				  `id` int NOT NULL AUTO_INCREMENT,
+				  `event_name` varchar(255) NOT NULL,
+				  `event_type` varchar(255) NULL,
+				  `event_start_date` datetime NOT NULL,
+				  `event_end_date` datetime NOT NULL,
+				  `event_location` varchar(255) NULL,
+				  `event_page_url` varchar(255) NOT NULL,
+				  `created_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+				  CONSTRAINT `events_id_pk` PRIMARY KEY (`id`),
+				  UNIQUE KEY `events_event_name_unk` (`event_name`)
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;	
+			]]>
+		</sql>
+
+	</changeSet>
+
+</databaseChangeLog>

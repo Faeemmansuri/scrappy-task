@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let header of headers">{{header}}</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr scope="row" *ngFor="let event of events">
+      <th scope="row" [attr.aria-label-id]="event.id">{{event.name}}</th>
+      <td>{{event.type}}</td>
+      <td>{{event.startDate}}</td>
+      <td>{{event.endDate}}</td>
+      <td>{{event.location}}</td>
+      <td><a [attr.href]="event.pageUrl">Register</a></td>
+    </tr>
+  </tbody>
+</table>

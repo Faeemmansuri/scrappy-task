@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="row">
+    <div class="col">
+      <multiselect-dropdown [list]="eventTypes" (shareCheckedList)="shareCheckedList($event)"
+        (shareIndividualCheckedList)="shareIndividualCheckedList($event)" [placeholder]="eventTypePlaceholder">
+      </multiselect-dropdown>
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" name="eventName" [(ngModel)]="eventName" autocomplete="off" placeholder="&#61442;  Search by Event Name">
+    </div>
+    <div class="col">
+      <input class="form-control" type="date" name="startDate" [(ngModel)]="startDate" />
+    </div>
+    <div class="col">
+      <input class="form-control" type="date" name="endDate" [(ngModel)]="endDate" />
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" name="location" [(ngModel)]="location" autocomplete="off" placeholder="&#61442;  Search by Location">
+    </div>
+    <div class="col-1">
+      <button type="button" class="btn btn-outline-success" (click)="onSearch()">
+       Search
+      </button>
+
+    </div>
+  </div>
+</div>
