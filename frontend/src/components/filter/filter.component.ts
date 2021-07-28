@@ -6,7 +6,7 @@ import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'event-filter',
-  templateUrl: './filter.component.html'
+  templateUrl: './filter.component.html',
 })
 export class FilterComponent implements OnInit {
   // faSearch = faSearch;
@@ -14,13 +14,13 @@ export class FilterComponent implements OnInit {
   eventTypes = [
     { name: 'HYBRID', checked: false },
     { name: 'VIRTUAL', checked: false },
-    { name: 'Earnings', checked: false }
+    { name: 'Earnings', checked: false },
   ];
-  eventName;
-  startDate;
-  endDate;
-  eventType;
-  location;
+  eventName: string = '';
+  startDate: string = '';
+  endDate: string = '';
+  eventType: string[] = [];
+  location: string = '';
 
   constructor(
     private eventService: EventService,
@@ -29,13 +29,13 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     const requestBody = {};
-    this.eventService.getEvents(0, 20, requestBody).subscribe(res => {
+    this.eventService.getEvents(0, 20, requestBody).subscribe((res) => {
       this.dataService.setEvents({ res: res, filter: requestBody });
       console.log('Data : ', res);
     });
   }
 
-  converToRequestFormat(dateString) {
+  converToRequestFormat(dateString: string | null | undefined) {
     if (dateString === null || dateString === '' || dateString === undefined) {
       return null;
     }
@@ -52,9 +52,9 @@ export class FilterComponent implements OnInit {
       startDate: this.converToRequestFormat(this.startDate),
       endDate: this.converToRequestFormat(this.endDate),
       location: this.location,
-      eventName: this.eventName
+      eventName: this.eventName,
     };
-    this.eventService.getEvents(0, 20, requestBody).subscribe(res => {
+    this.eventService.getEvents(0, 20, requestBody).subscribe((res) => {
       this.dataService.setEvents({ res: res, filter: requestBody });
       console.log('Data : ', res);
     });

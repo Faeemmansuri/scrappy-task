@@ -3,13 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EventService {
   constructor(private http: HttpClient) {}
 
-  getEvents(startAt, maxResults, requestBody: any): Observable<any> {
-    const endpoint = 'http://localhost:8080/events';
+  getEvents(
+    startAt: number,
+    maxResults: number,
+    requestBody: any
+  ): Observable<any> {
+    const endpoint = '/api/events';
     let queryString = '';
     if (startAt && maxResults) {
       queryString = `?startAt=${startAt}&maxResults=${maxResults}`;

@@ -4,11 +4,11 @@ import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'table-app',
-  templateUrl: './table.component.html'
+  templateUrl: './table.component.html',
 })
 export class TableComponent implements OnInit {
   headers = ['Event Name', 'Event Type', 'Start Date', 'End Date', 'Location'];
-  events = [];
+  events: any[] = [];
 
   constructor(private dataService: DataService) {}
 

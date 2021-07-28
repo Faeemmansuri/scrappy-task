@@ -17,7 +17,7 @@ import com.faeem.scrapper.services.EventService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/events")
+@RequestMapping("/api/events")
 public class EventController {
 
 	@Autowired

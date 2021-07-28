@@ -2,17 +2,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'multiselect-dropdown',
-  templateUrl: './dropdown.component.html'
+  templateUrl: './dropdown.component.html',
 })
 export class MultiSelectDropdownComponent {
-  @Input() list: any[];
-  @Input() placeholder: string;
+  @Input() list: any[] = [];
+  @Input() placeholder: string = '';
 
   @Output() shareCheckedList = new EventEmitter();
   @Output() shareIndividualCheckedList = new EventEmitter();
 
   checkedList: any[];
-  currentSelected: {};
+  currentSelected = {};
   showDropDown = false;
 
   constructor() {
